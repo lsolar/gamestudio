@@ -27,7 +27,6 @@ public class GuessNumberController {
 		private long timeStart = System.currentTimeMillis();
 		private Scanner scanner;
 		Random random = new Random();
-		int userGuess;
 		int maxNumber = 10;
 		int number = random.nextInt(maxNumber) + 1;
 
@@ -45,11 +44,6 @@ public class GuessNumberController {
 
 		@Autowired
 		private UserController userController;
-		
-		private String message = "";
-		public String getMessage() {
-			return message;
-		}
 
 		@RequestMapping("/addrating_guessnumber")
 		public String rating(@RequestParam(value = "value", required = false) String value, Model model) {
@@ -63,7 +57,8 @@ public class GuessNumberController {
 		@RequestMapping("/addcomment_guessnumber")
 		public String comment(@RequestParam(value = "content", required = false) String content, Model model) {
 			if (!"".equals(content)) {
-				commentService.addComment(new Comment(userController.getLoggedPlayer().getLogin(), "guessnumber", content));
+				commentService
+						.addComment(new Comment(userController.getLoggedPlayer().getLogin(), "guessnumber", content));
 			}
 			return fillModel(model);
 		}
@@ -75,12 +70,31 @@ public class GuessNumberController {
 			return fillModel(model);
 		}
 
-		@RequestMapping("/guessnumber")
-		public String puzzle(@RequestParam(value = "guess", required = false) int guess, Model model) {
-		
+		@RequestMapping("/guessnumber_ask")
+		public String guess(@RequestParam(value = "guess", required = false) String guess, Model model) {
+
+			String message = "";
+			try {
+				int userGuess = Integer.parseInt(guess);
+
+				if (userGuess < number) {
+					message = "My number is higher.";
+				} else if (userGuess > number) {
+					message = "My nunmber is lower.";
+				} else {
+					message = "You won, number is " + number;
+				}
+			} catch (NumberFormatException e) {
+				message = "Bad input, try again.";
+			}
+			model.addAttribute("message", message);
+			fillModel(model);
+			return "guessnumber";
+
 		}
 
 		private String fillModel(Model model) {
+
 			model.addAttribute("guessnumberController", this);
 			model.addAttribute("scores", scoreService.getTopScore("guessnumber"));
 			model.addAttribute("comment", commentService.getComments("guessnumber"));
