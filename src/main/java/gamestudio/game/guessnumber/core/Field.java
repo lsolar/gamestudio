@@ -1,4 +1,4 @@
-package gamestudio.game.guessnumber.core;
+ package gamestudio.game.guessnumber.core;
 
 public class Field {
 

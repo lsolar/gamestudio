@@ -1,5 +1,8 @@
 package gamestudio.server.controller;
 
+import java.util.Random;
+import java.util.Scanner;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -12,7 +15,6 @@ import gamestudio.entity.Comment;
 import gamestudio.entity.Favorite;
 import gamestudio.entity.Rating;
 import gamestudio.entity.Score;
-import gamestudio.game.puzzle.core.Field;
 import gamestudio.service.CommentService;
 import gamestudio.service.FavoritesService;
 import gamestudio.service.RatingService;
@@ -23,6 +25,11 @@ public class GuessNumberController {
 	@Scope(WebApplicationContext.SCOPE_SESSION)
 	public class PuzzleController {
 		private long timeStart = System.currentTimeMillis();
+		private Scanner scanner;
+		Random random = new Random();
+		int userGuess;
+		int maxNumber = 10;
+		int number = random.nextInt(maxNumber) + 1;
 
 		@Autowired
 		private RatingService ratingService;
@@ -39,7 +46,6 @@ public class GuessNumberController {
 		@Autowired
 		private UserController userController;
 		
-		int maxNumber = 10;
 		private String message = "";
 		public String getMessage() {
 			return message;
@@ -69,30 +75,10 @@ public class GuessNumberController {
 			return fillModel(model);
 		}
 
-//		@RequestMapping("/guessnumber")
-//		public String puzzle(@RequestParam(value = "tile", required = false) String tile, Model model) {
-//			try {
-//				if(sad);
-//					message = "EXCELLENT, YOU GOT IT!";
-//
-//					if (userController.isLogged()) {
-//						Score score = new Score();
-//						score.setGame("guessbumber");
-//						score.setUsername(userController.getLoggedPlayer().getLogin());
-//						score.setValue((int) (System.currentTimeMillis() - timeStart) / 1000);
-//
-//						scoreService.addScore(score);
-//					}
-//
-//					// if (userController.isLogged())
-//					// scoreService.addScore(new Score(userController.getLoggedPlayer().getLogin(),
-//					// "puzzle", 1000-10 * field.getPlayingSeconds());
-//				}
-//			} catch (NumberFormatException e) {
-//			}
-//			return fillModel(model);
-//
-//		}
+		@RequestMapping("/guessnumber")
+		public String puzzle(@RequestParam(value = "guess", required = false) int guess, Model model) {
+		
+		}
 
 		private String fillModel(Model model) {
 			model.addAttribute("guessnumberController", this);
@@ -104,17 +90,6 @@ public class GuessNumberController {
 						favoriteService.isFavorite("guessnumber", userController.getLoggedPlayer().getLogin()));
 			}
 			return "guessnumber";
-		}
-
-
-		public String render() {
-			StringBuilder sb = new StringBuilder();
-
-			sb.append("<table class='table_puzzle'>\n");
-				sb.append("<tr>\n");
-
-			return sb.toString();
-
 		}
 
 	}

@@ -1,15 +1,15 @@
 package gamestudio.consoleui;
 
-import java.util.List;
+//import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import gamestudio.entity.Comment;
+//import gamestudio.entity.Comment;
 import gamestudio.entity.Favorite;
 import gamestudio.entity.Rating;
 import gamestudio.entity.Score;
-import gamestudio.service.CommentService;
+//import gamestudio.service.CommentService;
 import gamestudio.service.FavoritesService;
 import gamestudio.service.RatingService;
 import gamestudio.service.ScoreService;
@@ -17,8 +17,8 @@ import gamestudio.service.ScoreService;
 public class ConsoleMenu {
 	private ConsoleGameUI[] games;
 
-	@Autowired
-	private CommentService commentService;
+//	@Autowired
+//	private CommentService commentService;
 
 	@Autowired
 	private ScoreService scoreService;
@@ -37,7 +37,7 @@ public class ConsoleMenu {
 	}
 
 	public void show() {
-		// scoreService.addScore(new Score("peter", "mines", 12));
+		 scoreService.addScore(new Score("peter", "mines", 12));
 		// commentService.addComment(new Comment("ivan", "puzzle","average game"));
 		ratingService.setRating(new Rating("jozef", "puzzle", 5));
 		ratingService.setRating(new Rating("peter", "puzzle", 4));
@@ -50,7 +50,7 @@ public class ConsoleMenu {
 		int index = 1;
 		for (ConsoleGameUI game : games) {
 			double rating = ratingService.getAverageRating(game.getName());
-			List<Comment> comment = commentService.getComments(game.getName());
+//			List<Comment> comment = commentService.getComments(game.getName());
 			// List<Favorite> favorite =
 			System.out.printf("%d. %s (%.2f/5)\n", index, game.getName(), rating);
 			index++;
