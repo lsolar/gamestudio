@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON príklad</title>
+</head>
+<body>
+Výsledky sú v konzole!
+<script>
+    var osObj = {
+        meno:"Ján",
+        vek: 25,
+        priezvisko: "Trieska",
+        zaluby:["telka","les"]
+    }
+    var osJSON = '{ "meno":"Ján", "vek":"25","priezvisko": "Trieska", "zaluby":["telka","les"]}';
+
+console.log("Objekt >> JSON:")
+console.log(JSON.stringify(osObj));
+console.log("JSON >> Objekt:")
+console.log(JSON.parse(osJSON));
+
+</script>
+</body>
+</html>

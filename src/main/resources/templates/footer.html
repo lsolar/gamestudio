@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Login</title>
+</head>
+<body>
+	<div th:fragment="nice_footer">
+		<hr />
+		Copyright 2018, <a href="/">GameStudio</a> <span
+			th:if='${@userController.logged}'> Logged as <span
+			th:text='${@userController.loggedPlayer?.login}' /> <a href="logout">Logout</a>
+		</span> <span th:if='${not @userController.logged}'> <a href="/user">Log
+				in</a>
+		</span>
+	</div>
+	<div th:fragment="rating_puzzle">
+		Average rating: <span th:text='${@puzzleController.rating}' />
+	</div>
+	
+	<div th:fragment="rating_mines">
+		Average rating: <span th:text='${@minesController.rating}' />
+	</div>
+
+</body>
+</html>

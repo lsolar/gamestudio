@@ -1,0 +1,190 @@
+#game-button {
+	text-align: left;
+	vertical-align: middle;
+}
+
+.mines-table {
+	line-height:0;
+/* 	margin:auto; */
+}
+/* #newgame */
+/* { */
+/* 	margin:auto; */
+	
+	
+/* } */
+
+/* #game { */
+/* 	transform: translate(50%, 0%); */
+/* 	display: block; */
+/* 	block-align: right; */
+/* } */
+
+
+.jumbotron1 {
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: 0.3rem;
+  margin-top: 1.5rem !important;  
+  
+}
+
+.display-5 {
+  font-size: 3.0rem;
+  font-weight: 300;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.display-6 {
+  font-size: 2.0rem;
+  font-weight: 300;
+  line-height: 1.2;
+  text-align: center;
+}
+
+
+.rating {
+	font-size:2rem;
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	
+}
+
+/* .rating span { */
+/* 	display: inline-block; */
+/* /* 	position: relative; */ */
+/* /* 	width: 1.1em; */ */
+/* 	color: #ffcc00; */
+/* } */
+
+/* .rating span:hover:before, .rating span:hover ~ span:before { */
+/* 	content: "\2605";	 */
+/* 	position: absolute; */
+/* } */
+
+/* --------------------------------------- */
+
+/* .rating { */
+/* 	font-size:1.5rem; */
+/* 	direction: ltr; */
+/* /* 	width: 200px; */ */
+/* /* 	margin: 50px auto; */ */
+/* } */
+
+/* .rating a { */
+/* 	display: inline-block; */
+	
+/* 	font-size: 40px; */
+/* 	color: orange; */
+/* 	cursor: pointer; */
+/* } */
+
+/* .rating a:hover:before, rating a:hover ~ a:before  { */
+/* 	content: "\2605"; */
+/* 	position: absolute; */
+/* 	color: orange; */
+/* } */
+
+#game-button {
+	text-align: left;
+	vertical-align: middle;
+}
+
+.mines-table {
+	line-height: 0;
+	/* 	margin:auto; */
+}
+/* #newgame */
+/* { */
+/* 	margin:auto; */
+
+/* } */
+
+/* #game { */
+/* 	transform: translate(50%, 0%); */
+/* 	display: block; */
+/* 	block-align: right; */
+/* } */
+/* .jumbotron1 { */
+/* 	padding: 2rem 1rem; */
+/* 	margin-bottom: 2rem; */
+/* 	background-color: #e9ecef; */
+/* 	border-radius: 0.3rem; */
+/* } */
+
+/* .display-5 { */
+/* 	font-size: 4.5rem; */
+/* 	font-weight: 300; */
+/* 	line-height: 1.2; */
+/* 	text-align: center */
+/* } */
+.display-3 {
+	
+	text-align:center;
+}
+
+.display-8 {
+	text-align: center;
+}
+
+.col-12a {
+	text-align: center;
+  -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.table-favourite div 	{
+/* 	text-align:relative; */
+	position: center;
+/* 	align:block; */
+/* 	width:100% */
+}
+
+.rating {
+	font-size: 2rem;
+	unicode-bidi: bidi-override;
+	direction: rtl;
+}
+
+/* .rating span { */
+/* 	display: inline-block; */
+/* /* 	position: relative; */
+/
+/* /* 	width: 1.1em; */
+ 
+
+/* 	color: #ffcc00; */
+/* } */
+
+/* .rating span:hover:before, .rating span:hover ~ span:before { */
+/* 	content: "\2605";	 */
+/* 	position: absolute; */
+/* } */
+
+/* --------------------------------------- */
+
+/* .rating { */
+/* 	font-size:1.5rem; */
+/* 	direction: ltr; */
+/* /* 	width: 200px; */
+ 
+/* /* 	margin: 50px auto; */
+
+/* } */
+
+/* .rating a { */
+/* 	display: inline-block; */
+
+/* 	font-size: 40px; */
+/* 	color: orange; */
+/* 	cursor: pointer; */
+/* } */
+
+/* .rating a:hover:before, rating a:hover ~ a:before  { */
+/* 	content: "\2605"; */
+/* 	position: absolute; */
+/* 	color: orange; */
+/* } */

@@ -1,0 +1,83 @@
+html {
+	font-size: 100%;
+	font-family: "Tw Cen MT", Arial, Helvetica, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+	color: rgb(63, 38, 0);
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #982d3b;
+}
+
+body>header {
+	border-radius: 1rem;
+	padding: 0.5rem;
+	text-align: center;
+	background-color: rgb(204, 153, 0);
+}
+
+.menu {
+	text-align: left;
+	padding-left: 0.8em;
+}
+
+#menuCl {
+	position: absolute;
+	padding: 0.5em;
+	max-width: 5em;
+	min-width: 4em;
+	border-radius: 0.5rem;
+	background-color: #ffffe6;
+}
+
+#menuCl>a {
+	display: block;
+}
+
+#menuClNazov {
+	border: 0;
+	background-color: #b3ecff;
+	outline: none;
+}
+
+#menuClNazov:hover, #menuCl>a:hover {
+	text-decoration: none;
+	color: #982d3b;
+	background-color: #5cd65c;
+}
+
+.skryty {
+	display: none;
+}
+
+.zobraz {
+	display: block;
+}
+
+h1, h2 {
+	border-radius: 0.3rem;
+	padding: 0.5rem;
+	text-align: center;
+	background-color: #5cd65c;
+}
+
+th {
+	padding: 0.5em;
+	background-color: #ffffe6;
+	border: solid;
+	border-width: 0.1em;
+	text-align: center;
+}
+
+td {
+	padding: 0.5em;
+	border: solid;
+	border-width: 0.1em;
+	text-align: center;
+}

@@ -1,0 +1,40 @@
+html {
+	/*   overflow: hidden; */
+	font-family: impact;
+}
+
+.table_puzzle td {
+	font-size: 3.5rem;
+/* 	height: auto; */
+	width:20%;
+	height:20%;
+/* 	width: 285px; */
+/* 	font-weight: bold; */
+	border: solid;
+	text-align: center;
+	padding:0;
+	border-radius:0.3rem;
+}
+
+.table_puzzle  {
+	border: 1;
+	border-collapse: collapse;
+	
+	
+}
+.table_puzzle puzzle-link>a:hover {
+	background-color: #b3d9ff;	
+	text-decoration: underline;
+}
+table_puzzle puzzle-link>a:link {
+	text-decoration: none;
+}
+
+.table_puzzle puzzle-link>a:visited {
+	text-decoration: none;
+	color: #004080;
+}
+
+.table_puzzle puzzle-link>a:active {
+	color: red;
+}

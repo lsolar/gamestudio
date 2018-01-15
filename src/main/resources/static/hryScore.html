@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tabulka Score</title>
+<link rel="stylesheet" href="css/normalize.css" />
+<link rel="stylesheet" href="css/scoreTable.css" />
+<link rel="stylesheet" href="css/hry.css" />
+
+</head>
+
+<body>
+
+	<main>
+	<h2>New score</h2>
+	<form id="frmNewScore">
+		<label>Select game: <select id="choseGame" form="frmNewScore">
+
+				<option value="Diablo3">Diablo3</option>
+				<option value="Battlefield4">Battlefield4</option>
+		</select>
+		</label><br> <label>Your name: <input type="text" id="username"
+			placeholder="Enter your name" />
+		</label><br> <label>Your new score: <input type="text"
+			id="inNewScore" placeholder="Enter score as number" />
+		</label><br>
+		<button type="button" id="btSaveScore">Save score</button>
+		<button type="button" id="btgetScore" onclick="javascript:drawScoreTable()">Get score</button>
+	</form>
+
+
+	<hr>
+
+	<h2>List of scores</h2>
+
+	<div id="scoreTable"></div>
+
+	</main>
+
+
+
+	<!-- Mustache sablona pre jednu ulohu -->
+	<script id="tmplScores" type="text/template">
+    
+	<ol>
+    {{#.}}
+	<li>{{username}}    {{value}}</li>
+    {{/.}}
+	</ol>
+	</script>
+
+
+	<!-- Vlozenie jQuery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous">
+		
+	</script>
+	<!--Linka na CDN je z https://code.jquery.com/-->
+	<script>
+		window.jQuery
+				|| document.write('<script src="js/jquery.min.js"><\/script>')
+	</script>
+
+
+	<!-- Vlozenie Mustache -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+	<script>
+		window.Mustache
+				|| document
+						.write('<script src="js/mustache.min.js"><\/script>')
+	</script>
+
+	<!-- Vlozenie skriptu pre tuto stranku  -->
+	<!-- <script src="js/ajaxDemo.js"></script> -->
+	<script src="js/gameScore.js"></script>
+
+
+
+</body>
+</html>

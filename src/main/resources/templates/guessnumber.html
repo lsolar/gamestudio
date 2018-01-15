@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<!-- <link rel="stylesheet" href="/css/bootstrap.css" /> -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/heroic-features.css" rel="stylesheet" />
+<link href="css/gamestudio.css" rel="stylesheet" />
+<title>Mines</title>
+</head>
+
+<body>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="/"> Back to GameStudio 2018</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="/user">Login</a>
+					</li>
+					<li class="nav-item"><span
+						th:if='${not @userController.logged}'> </span> <span
+						th:if='${@userController.logged}'> <a class="nav-link"
+							href='/addfavorite_guessnumber'> <span th:if='${favorite}'>
+									Remove favourite <img src="/images/favorites_removenew.png" />
+							</span> <span th:if='${not favorite}'>Add favourite <img
+									src="/images/favorites_addnew.png" />
+							</span>
+						</a>
+					</span></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<header class="jumbotron1">
+			<h2 class="display-5">Mines</h2>
+			<h6 class="display-6">Average rating:</h6>
+			<!-- 			<h6 class="display-4"> <span th:utext='${#numbers.formatDecimal(averageGuessnumber,1,2)}' /><span>/5.00</span></h6> -->
+		</header>
+		<div class="row">
+			<div class="col-lg-3 col-md-6 mb-4">
+
+				<!-- <!-- 				<p th:utext='${guessnumberController.render()}' /> -->
+				-->
+				<!-- 				<p th:utext='${guessnu,berController.message}' /> -->
+
+				<a href='/mines' class="btn btn-secondary">Easy</a> <a
+					href='/mines_medium' class="btn btn-secondary">Medium</a> <a
+					href='/mines_hard' class="btn btn-secondary">Hard</a><br /> <br />
+				<a href='/mines_mark' class="btn btn-secondary"><span
+					th:if='${minesController.marking}'>Open tile</span> <span
+					th:if='${not minesController.marking}'>Mark tile</span> </a> <br /> <br />
+			</div>
+
+			<div class="col-lg-3 col-md-6 mb-4">
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Score</th>
+					</tr>
+					<tr th:each='score: ${scores}'>
+						<td th:text='${score.username}' />
+						<td th:text='${score.value}' />
+					</tr>
+				</table>
+			</div>
+			<div class="col-lg-3 col-md-6 mb-4">
+				<table>
+					<tr>
+						<th>User</th>
+						<th>Comment</th>
+					</tr>
+					<tr th:each='comment: ${comments}'>
+						<td th:text='${comment.username}' />
+						<td th:text='${comment.content}' />
+					</tr>
+				</table>
+				<hr />
+				<span th:if='${not @userController.logged}'> Please log in
+					for comment this game </span>
+				<form action='/addcomment_guessnumber' method='post'>
+					<span th:if='${@userController.logged}'> <label>Comment:<input
+							type="text" name="content" placeholder="Enter your comment here" /></label>
+						<input type="submit" value="Send" class="btn btn-secondary" />
+					</span>
+				</form>
+			</div>
+			<div class="col-lg-3 col-md-6 mb-4">
+				<h5>Rate game:</h5>
+				<span th:if='${not @userController.logged}'> Please log in
+					for rate this game </span>
+				<div class="rating">
+					<span th:if='${@userController.logged}'> <span><a
+							href='/addrating_guessnumber?value=5'>☆</a></span> <span><a
+							href='/addrating_guessnumber?value=4'>☆</a></span> <span><a
+							href='/addrating_guessnumber?value=3'>☆</a></span> <span><a
+							href='/addrating_guessnumber?value=2'>☆</a></span> <span><a
+							href='/addrating_guessnumber?value=1'>☆</a></span>
+					</span>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">
+				Copyright &copy; GameStudio 2018 <span
+					th:if='${@userController.logged}'> | Logged as <span
+					th:text='${@userController.loggedPlayer?.login}' /> | <a
+					href="/logout"> Logout</a>
+				</span>
+			</p>
+
+		</div>
+		<!-- /.container -->
+	</footer>
+
+</body>
+</html>

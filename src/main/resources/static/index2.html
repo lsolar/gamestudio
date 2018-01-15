@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<title>Oblubene hry</title>
+
+<style>
+.container {
+	font-family: helvetica;
+}
+
+.col-8 {
+	text-align: left;
+	font-family: arial;
+}
+
+img {
+	border-radius: 5px;
+	max-width: 80%;
+	height: auto;
+}
+
+.col-12 {
+	text-align: center;
+}
+</style>
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/normalize.css" />
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/hry.css" />
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> -->
+<!-- <link rel="stylesheet" href="css/mojStyl.css"> -->
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h2 id="nadpisZac">Oblubene hry</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="menu">
+				<button id="menuClNazov" onclick="zobrazAleboSkriMenu()">Menu</button>
+				<nav id="menuCl" class="menu skryty">
+					<a href="#artUvod">Uvod</a> <a href="#artDiablo">Diablo III</a> <a
+						href="#artBattlefield">Battlefield 4</a>
+				</nav>
+			</div>
+		</div>
+		<hr>
+		<p id="artUvod">Toto je zoznam mojich oblubenych hier</p>
+		<ul>
+			<li>Zoznam je vytvoreny na zaklade mojich osobnych preferencii</li>
+			<li>Zoznam oblubenych hier sa moze kedykolvek zmenit</li>
+		</ul>
+		<hr>
+
+
+		<div class="row">
+			<div class="col-4">
+				<img src="/images/diablo-3-logo.jpg" alt="Diablo III">
+			</div>
+			<div class="col-8">
+				<h4 id="artDiablo">Diablo III</h4>
+				<table>
+					<tr>
+						<th>Typ</th>
+						<th>Rok vydania</th>
+						<th>Vyvojar</th>
+					</tr>
+					<tr>
+						<td>RPG</td>
+						<td>2012</td>
+						<td><a href="https://www.blizzard.com/en-us/">Blizzard
+								Entertainment</a></td>
+				</table>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-4">
+				<img src="/images/battlefield4.jpg" alt="Battlefield 4">
+			</div>
+			<div class="col-8">
+				<h4 id="artBattlefield">Battlefield 4</h4>
+				<table>
+					<tr>
+						<th>Typ</th>
+						<th>Rok vydania</th>
+						<th>Vyvojar</th>
+					</tr>
+					<tr>
+						<td>FPS</td>
+						<td>2013</td>
+						<td><a href="http://www.dice.se/">EA Dice</a></td>
+				</table>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-12">
+				<a href="http://localhost:8080/hryScore.html">Pridaj score pre
+					hry zo zoznamu</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		function zobrazAleboSkriMenu() {
+			document.getElementById("menuCl").classList.toggle("zobraz");
+		}
+
+		function skriMenu() {
+			var menuClElmCList = document.getElementById("menuCl").classList;
+			if (menuClElmCList.contains("zobraz"))
+				menuClElmCList.remove("zobraz");
+
+		}
+
+		document.addEventListener("click", //radsej takto ako do document.onclick, lebo to by vyradilo iné listenery
+		function(udalost) {
+			if (!udalost.target.matches("#menuCl, #menuClNazov"))
+				skriMenu();
+		});
+
+		document.addEventListener("click", //vypise do konzoly na co som klikol
+		function(udalost) {
+			console.log(udalost.target);
+		});
+
+		/*
+		 * Pozor: ani jeden z listenerov nebude reagovat na kliknutia v dokumentoch, ktore by tu boli vlozene cez iframe.
+		 * A to ani v pripade ak document.addEventListener zamenime za window.addEventListener.
+		 */
+	</script>
+
+
+</body>
+</html>

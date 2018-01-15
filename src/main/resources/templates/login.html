@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<!-- <link rel="stylesheet" href="/css/bootstrap.css" /> -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/heroic-features.css" rel="stylesheet" />
+
+<title>Login</title>
+</head>
+<body>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="/">GameStudio 2018</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="/user">Login</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-lg-3 col-md-6 mb-4"></div>
+			<div class="col-lg-3 col-md-6 mb-4">
+				<form action="/login" method="post">
+
+					<div class="col-lg-3 col-md-6 mb-4">
+						Login: <input type="text" name="login"
+							th:value="${@userController.loggedPlayer?.login}" /> Password: <input
+							type="password" name="password" /> <br /> <br /> <input
+							class="btn btn-secondary" type="submit" value="Login" />
+					</div>
+
+				</form>
+			</div>
+			<div class="col-lg-3 col-md-6 mb-4">
+				<form action="/register" method="post" id="myForm">
+
+					<div class="col-lg-3 col-md-6 mb-4">
+
+						Login: <input type="text" name="login" id="field_username"
+							title="Username must not be blank and contain only letters, numbers and underscores."
+							th:value="${@userController.loggedPlayer?.login}" /> Email: <input
+							type="email" name="email" /> Password: <input type="password"
+							name="password" id="field_pwd1"
+							title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." />
+						Retype password: <input type="password" id="field_pwd2"
+							title="Please enter the same Password as above." name="password2" /> <br /> <br />
+						<input class="btn btn-secondary" type="submit" value="Register" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">
+				Copyright &copy; GameStudio 2018 <span
+					th:if='${@userController.logged}'> | Logged as <span
+					th:text='${@userController.loggedPlayer?.login}' /> | <a
+					href="/logout"> Logout</a>
+				</span>
+			</p>
+
+		</div>
+		<!-- /.container -->
+	</footer>
+	<script src="/js/passwordValidation.js"></script>
+
+</body>
+</html>
