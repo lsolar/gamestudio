@@ -25,4 +25,10 @@ public class RatingServiceSORM implements RatingService {
 		return ratingValues / list.size();
 	}
 
+	@Override
+	public int getUserValue(String username, String game) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

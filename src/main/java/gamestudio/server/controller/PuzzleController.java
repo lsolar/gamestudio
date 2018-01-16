@@ -41,7 +41,7 @@ public class PuzzleController {
 	private Field field = new Field(3, 3);
 
 	private String message = "";
-//	private double rating;
+	// private double rating;
 
 	// public double getRating() {
 	// rating = ratingService.getAverageRating("puzzle");
@@ -111,12 +111,14 @@ public class PuzzleController {
 		if (userController.isLogged()) {
 			model.addAttribute("favorite",
 					favoriteService.isFavorite("puzzle", userController.getLoggedPlayer().getLogin()));
+			model.addAttribute("userRating",
+					ratingService.getUserValue(userController.getLoggedPlayer().getLogin(), "puzzle"));
 		}
 		return "puzzle";
 	}
 
 	@RequestMapping("/puzzle_medium")
-	public String puzzleMedium(@RequestParam(value = "ti le", required = false) String tile, Model model) {
+	public String puzzleMedium(@RequestParam(value = "tile", required = false) String tile, Model model) {
 		try {
 			field.moveTile(Integer.parseInt(tile));
 			if (field.isSolved()) {

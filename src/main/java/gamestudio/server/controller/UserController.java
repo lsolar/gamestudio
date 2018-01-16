@@ -34,6 +34,8 @@ public class UserController {
 	private void fillModel(Model model) {
 		model.addAttribute("averageMines", ratingService.getAverageRating("mines"));
 		model.addAttribute("averagePuzzle", ratingService.getAverageRating("puzzle"));
+		model.addAttribute("averageGuess", ratingService.getAverageRating("guessnumber"));
+
 		if (isLogged()) {
 			model.addAttribute("favorites", favoriteService.getFavorite(getLoggedPlayer().getLogin()));
 		}

@@ -52,4 +52,10 @@ public class RatingServiceJDBC implements RatingService {
 		return -1;
 	}
 
+	@Override
+	public int getUserValue(String username, String game) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

@@ -93,7 +93,6 @@
 						<h4 class="card-title">Puzzle</h4>
 						<p class="card-text">
 							<div>Average rating</div>
-							<!-- 						<div th:utext='${averagePuzzle}' /> -->
 						<span th:utext='${#numbers.formatDecimal(averagePuzzle,1,2)}' /><span>/5.00</span>
 						</p>
 					</div>
@@ -108,7 +107,10 @@
 					<img class="card-img-top" src="/images/guessnumber.jpg" alt="Guess the number!" />
 					<div class="card-body">
 						<h4 class="card-title">Guess the number!</h4>
-						<p class="card-text"></p>
+						<p class="card-text">
+						<div>Average rating</div>
+						<span th:utext='${#numbers.formatDecimal(averageGuess,1,2)}' /><span>/5.00</span>
+						</p>
 					</div>
 					<div class="card-footer">
 						<a href="/guessnumber" class="btn btn-success">Play!</a>

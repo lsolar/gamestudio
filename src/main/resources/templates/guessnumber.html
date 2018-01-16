@@ -42,18 +42,20 @@
 		<header class="jumbotron1">
 			<h2 class="display-5">Guess the number</h2>
 			<h6 class="display-6">Average rating:</h6>
-			<!-- 			<h6 class="display-4"> <span th:utext='${#numbers.formatDecimal(averageGuessnumber,1,2)}' /><span>/5.00</span></h6> -->
+			<h6 class="display-4">
+				<span th:utext='${#numbers.formatDecimal(averageGuessnumber,1,2)}' /><span>/5.00</span>
+			</h6>
 		</header>
 		<div class="row">
 			<div class="col-lg-3 col-md-6 mb-4">
 
-<!-- 				<form> -->
-<!-- <!-- 					<p th:utext='${guessnumberController.guessnumber()}'> --> -->
+				<form action='/guessnumber' method='post'>
 
-<!-- 						Your guess: <input type="text" name="input" /><input  -->
-<!-- 							class="btn btn-secondary" type="submit" value="Submit" > -->
-<!-- <!-- 					</p> --> -->
-<!-- 				</form> -->
+					Your guess: <input type="text" name="guess" autofocus='autofocus' /><br />
+					<br />
+					<input class="btn btn-secondary" type="submit" value="Submit" />
+				</form>
+				<span th:text='${message}' />
 			</div>
 
 			<div class="col-lg-3 col-md-6 mb-4">
@@ -92,16 +94,18 @@
 			<div class="col-lg-3 col-md-6 mb-4">
 				<h5>Rate game:</h5>
 				<span th:if='${not @userController.logged}'> Please log in
-					for rate this game </span>
-				<div class="rating">
-					<span th:if='${@userController.logged}'> <span><a
-							href='/addrating_guessnumber?value=5'>☆</a></span> <span><a
+					for rate this game </span> <span th:if='${@userController.logged}'>
+					<span> Your rating: <span th:text='${userRating}' />
+				</span>
+					<div class="rating">
+						<span><a href='/addrating_guessnumber?value=5'>☆</a></span> <span><a
 							href='/addrating_guessnumber?value=4'>☆</a></span> <span><a
 							href='/addrating_guessnumber?value=3'>☆</a></span> <span><a
 							href='/addrating_guessnumber?value=2'>☆</a></span> <span><a
 							href='/addrating_guessnumber?value=1'>☆</a></span>
-					</span>
-				</div>
+					</div>
+				</span>
+
 			</div>
 		</div>
 

@@ -175,6 +175,8 @@ public class MinesController {
 		if (userController.isLogged()) {
 			model.addAttribute("favorite",
 					favoriteService.isFavorite( "mines", userController.getLoggedPlayer().getLogin()));
+			model.addAttribute("userRating",
+					ratingService.getUserValue(userController.getLoggedPlayer().getLogin(), "mines"));
 		}
 		return "mines";
 	}

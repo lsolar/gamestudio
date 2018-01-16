@@ -22,4 +22,9 @@ public class RatingServiceRestClient implements RatingService {
 		return o != null ? o : 0;
 	}
 
+	@Override
+	public int getUserValue(String username, String game) {
+		return 0;
+	}
+
 }

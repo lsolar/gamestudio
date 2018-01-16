@@ -34,4 +34,16 @@ public class RatingServiceJPA implements RatingService {
 		return o == null ? 0 : (double) o;
 
 	}
+
+	@Override
+	public int getUserValue(String username, String game) {
+		try {
+			return (int) entityManager
+					.createQuery("SELECT r.value FROM Rating r WHERE r.game = :game AND r.username = :username")
+					.setParameter("game", game).setParameter("username", username).getSingleResult();
+		} catch (Exception e) {
+			return 0;
+		}
+
+	}
 }
