@@ -1,7 +1,6 @@
 package gamestudio.server.controller;
 
 import java.util.Random;
-import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -68,7 +67,7 @@ public class GuessNumberController {
 	}
 
 	@RequestMapping("/guessnumber")
-	public String guessAsk(@RequestParam(value = "guess", required = false) String guess, Model model) {
+	public String guess(@RequestParam(value = "guess", required = false) String guess, Model model) {
 
 		String message = "";
 		try {

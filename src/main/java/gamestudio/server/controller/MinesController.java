@@ -25,7 +25,7 @@ import gamestudio.service.ScoreService;
 @Controller
 @Scope(WebApplicationContext.SCOPE_SESSION)
 public class MinesController {
-	private Field field = new Field(5, 5, 1);
+	private Field field;
 	private double rating;
 	private long timeStart = System.currentTimeMillis();
 
@@ -106,24 +106,23 @@ public class MinesController {
 			else if (field.getState() == GameState.SOLVED) {
 				message = "YOU WON!";
 
-				// long actualTime = (int) (System.currentTimeMillis() - timeStart)/1000;
-				// int timeScore = (int) field.getActualTime();
-
-				if (userController.isLogged()) {
-					Score score = new Score();
-					score.setGame("mines");
-					score.setUsername(userController.getLoggedPlayer().getLogin());
-					score.setValue((int) (System.currentTimeMillis() - timeStart) / 1000);
-
-					scoreService.addScore(score);
-
-				}
+				timeCount();
 
 			}
 		} catch (NumberFormatException e) {
 			createField();
 		}
 		return fillModel(model);
+	}
+
+	private void timeCount() {
+		if (userController.isLogged()) {
+			Score score = new Score();
+			score.setGame("mines");
+			score.setUsername(userController.getLoggedPlayer().getLogin());
+			score.setValue((int) (System.currentTimeMillis() - timeStart) / 1000);
+			scoreService.addScore(score);
+		}
 	}
 
 	@RequestMapping("/mines_medium")
@@ -139,6 +138,9 @@ public class MinesController {
 				message = "GAME OVER, TRY AGAIN";
 			else if (field.getState() == GameState.SOLVED) {
 				message = "YOU WON!";
+
+				timeCount();
+
 			}
 		} catch (NumberFormatException e) {
 			createFieldMedium();
@@ -159,6 +161,8 @@ public class MinesController {
 				message = "GAME OVER, TRY AGAIN";
 			else if (field.getState() == GameState.SOLVED) {
 				message = "YOU WON!";
+
+				timeCount();
 			}
 		} catch (NumberFormatException e) {
 			createFieldHard();
@@ -174,7 +178,7 @@ public class MinesController {
 
 		if (userController.isLogged()) {
 			model.addAttribute("favorite",
-					favoriteService.isFavorite( "mines", userController.getLoggedPlayer().getLogin()));
+					favoriteService.isFavorite("mines", userController.getLoggedPlayer().getLogin()));
 			model.addAttribute("userRating",
 					ratingService.getUserValue(userController.getLoggedPlayer().getLogin(), "mines"));
 		}
