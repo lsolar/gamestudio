@@ -15,6 +15,8 @@
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 <link href="css/gamestudio.css" rel="stylesheet" />
 
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> -->
+
 <!-- Custom styles for this template -->
 <link href="css/heroic-features.css" rel="stylesheet" />
 
@@ -68,14 +70,14 @@
 
 			<div class="col-lg-3 col-md-6 mb-4">
 				<div class="card">
-					<img class="card-img-top" src="/images/miny.png" alt="" />
+					<img class="card-img-top" src="/images/miny.png" alt="mines" />
 					<div class="card-body">
 						<h4 class="card-title">Minesweeper</h4>
 						<!--               <p class="card-text" ><div th:replace="footer::rating_mines" /></p> -->
 						<p class="card-text">
 							<div>Average rating</div>
 							<!-- 						<div th:utext='${averageMines}' /> -->
-						<span th:utext='${#numbers.formatDecimal(averageMines,1,2)}' /><span>/5.00</span>
+						<span th:utext='${#numbers.formatDecimal(averageMines,1,1)}' /><span>/5</span>
 
 						</p>
 					</div>
@@ -87,13 +89,13 @@
 
 			<div class="col-lg-3 col-md-6 mb-4">
 				<div class="card">
-					<img class="card-img-top" src="/images/puzzle.png"
-						alt="puzzle image" />
+					<img class="card-img-top" src="/images/unnamed.png"
+						alt="puzzle" />
 					<div class="card-body">
 						<h4 class="card-title">Puzzle</h4>
 						<p class="card-text">
 							<div>Average rating</div>
-						<span th:utext='${#numbers.formatDecimal(averagePuzzle,1,2)}' /><span>/5.00</span>
+						<span th:utext='${#numbers.formatDecimal(averagePuzzle,1,1)}' /><span>/5</span>
 						</p>
 					</div>
 					<div class="card-footer">
@@ -104,12 +106,12 @@
 
 			<div class="col-lg-3 col-md-6 mb-4">
 				<div class="card">
-					<img class="card-img-top" src="/images/guessnumber.jpg" alt="Guess the number!" />
+					<img class="card-img-top" src="/images/guess.png" alt="Guess the number!" />
 					<div class="card-body">
 						<h4 class="card-title">Guess the number!</h4>
 						<p class="card-text">
 						<div>Average rating</div>
-						<span th:utext='${#numbers.formatDecimal(averageGuess,1,2)}' /><span>/5.00</span>
+						<span th:utext='${#numbers.formatDecimal(averageGuess,1,1)}' /><span>/5</span>
 						</p>
 					</div>
 					<div class="card-footer">
@@ -120,13 +122,13 @@
 
 			<div class="col-lg-3 col-md-6 mb-4">
 				<div class="card">
-					<img class="card-img-top" src="http://placehold.it/500x325" alt="" />
+					<img class="card-img-top" src="/images/slide2.png" alt="Sliding puzzle" />
 					<div class="card-body">
-						<h4 class="card-title">Game4</h4>
+						<h4 class="card-title">Sliding puzzle</h4>
 						<p class="card-text"></p>
 					</div>
 					<div class="card-footer">
-						<a href="#" class="btn btn-dark">Play!</a>
+						<a href="/slide" class="btn btn-dark">Play!</a>
 					</div>
 				</div>
 			</div>

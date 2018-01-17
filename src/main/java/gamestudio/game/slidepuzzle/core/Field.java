@@ -1,12 +1,12 @@
-package gamestudio.game.puzzle.core;
+package gamestudio.game.slidepuzzle.core;
 
 import java.util.Random;
 
 public class Field {
+
 	private final int rowCount;
 	private final int columnCount;
 	private final int[][] tiles;
-	public static final int EMPTY_TILE = 0;
 
 	public Field(int rowCount, int columnCount) {
 		this.rowCount = rowCount;
@@ -35,17 +35,16 @@ public class Field {
 				tile++;
 			}
 		}
-		tiles[rowCount - 1][columnCount - 1] = EMPTY_TILE;
+
 		shuffle();
 
 	}
 
 	private void shuffle() {
-		Random random = new Random();
-		for (int i = 0; i < rowCount * columnCount * 100; i++) {
-			moveTile(random.nextInt(rowCount * columnCount - 1) + 1);
+		for (int row = 0; row < rowCount; row++) {
+			for (int column = 0; column < columnCount; column++) {
+			}
 		}
-
 	}
 
 	private Coordinate getTileCoordinate(int tile) {
@@ -64,31 +63,27 @@ public class Field {
 		int tile = 1;
 		for (int row = 0; row < rowCount; row++) {
 			for (int column = 0; column < columnCount; column++) {
-				if (tiles[row][column] != EMPTY_TILE)
-					if (tiles[row][column] != tile)
-						return false;
+				if (tiles[row][column] != tile)
+					return false;
 				tile++;
 			}
 		}
 		return true;
 	}
 
-	public boolean moveTile(int tile) {
-		if (tile <= 0 || tile >= rowCount * columnCount)
-			return false;
-
-		Coordinate tileCoordinate = getTileCoordinate(tile);
-		Coordinate emptyCoordinate = getTileCoordinate(EMPTY_TILE);
-
-		if ((tileCoordinate.getRow() == emptyCoordinate.getRow()
-				&& Math.abs(tileCoordinate.getColumn() - emptyCoordinate.getColumn()) == 1)
-				|| (tileCoordinate.getColumn() == emptyCoordinate.getColumn()
-						&& Math.abs(tileCoordinate.getRow() - emptyCoordinate.getRow()) == 1)) {
-			tiles[emptyCoordinate.getRow()][emptyCoordinate.getColumn()] = tile;
-			tiles[tileCoordinate.getRow()][tileCoordinate.getColumn()] = EMPTY_TILE;
-			return true;
-		}
-		return false;
-	}
+	// public void moveTile(int tile) {
+	// if (tile <= 0 || tile >= rowCount * columnCount)
+	//
+	// Coordinate tileCoordinate = getTileCoordinate(tile);
+	// Coordinate tile2Coordinate = getTileCoordinate(tile);
+	//
+	// if ((tileCoordinate.getRow() == emptyCoordinate.getRow()
+	// && Math.abs(tileCoordinate.getColumn() - emptyCoordinate.getColumn()) == 1)
+	// || (tileCoordinate.getColumn() == emptyCoordinate.getColumn()
+	// && Math.abs(tileCoordinate.getRow() - emptyCoordinate.getRow()) == 1)) {
+	// tiles[tile2Coordinate.getRow()][tile2Coordinate.getColumn()] = tile;
+	// tiles[tileCoordinate.getRow()][tileCoordinate.getColumn()] = tile2;
+	// }
+	// }
 
 }

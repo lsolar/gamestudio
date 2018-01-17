@@ -6,7 +6,6 @@
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 <link href="css/heroic-features.css" rel="stylesheet" />
 <link href="css/gamestudio.css" rel="stylesheet" />
-
 <title>Mines</title>
 </head>
 
@@ -27,9 +26,8 @@
 					<li class="nav-item"><span
 						th:if='${not @userController.logged}'> </span> <span
 						th:if='${@userController.logged}'> <a class="nav-link"
-							href='/addfavorite_mines'> <span th:if='${favorite}'>
+							href='/addfavorite_slide'> <span th:if='${favorite}'>
 									Remove favourite <img src="/images/favorites_removenew.png" />
-
 							</span> <span th:if='${not favorite}'>Add favourite <img
 									src="/images/favorites_addnew.png" />
 							</span>
@@ -42,25 +40,20 @@
 
 	<div class="container">
 		<header class="jumbotron1">
-			<h2 class="display-5">Mines</h2>
+			<h2 class="display-5">Sliding puzzle</h2>
 			<h6 class="display-6">Average rating:</h6>
-			<h6 class="display-6">
-				<span th:utext='${#numbers.formatDecimal(averageMines,1,1)}' /><span>/5</span>
+			<h6 class="display-4">
+								<span th:utext='${#numbers.formatDecimal(averageSlide,1,1)}' /><span>/5</span>
 			</h6>
 		</header>
 		<div class="row">
-			<div class="col-lg-3 col-md-6 mb-4">
+			<div class="col-lg-3 col-md-6 mb-4" id="image">
 
-				<p th:utext='${minesController.render()}' />
-				<p th:utext='${minesController.message}' />
+				<p th:utext='${slideController.render()}' />
 
-				<a href='/mines' class="btn btn-secondary">Easy</a> <a
-					href='/mines_medium' class="btn btn-secondary">Medium</a> <a
-					href='/mines_hard' class="btn btn-secondary">Hard</a><br /> <br />
-				<a href='/mines_mark' class="btn btn-secondary"><span
-					th:if='${minesController.marking}'>Open tile</span> <span
-					th:if='${not minesController.marking}'>Mark tile</span> </a> <br /> <br />
 			</div>
+		</div>
+		<div class="row">
 
 			<div class="col-lg-3 col-md-6 mb-4">
 				<table>
@@ -75,12 +68,10 @@
 				</table>
 			</div>
 			<div class="col-lg-3 col-md-6 mb-4">
-
 				<table>
 					<tr>
 						<th>User</th>
 						<th>Comment</th>
-
 					</tr>
 					<tr th:each='comment: ${comments}'>
 						<td th:text='${comment.username}' />
@@ -90,14 +81,13 @@
 				<hr />
 				<span th:if='${not @userController.logged}'> Please log in
 					for comment this game </span>
-				<form action='/addcomment_mines' method='post'>
+				<form action='/addcomment_slide' method='post'>
 					<span th:if='${@userController.logged}'> <label>Comment:<input
 							type="text" name="content" placeholder="Enter your comment here" /></label>
 						<input type="submit" value="Send" class="btn btn-secondary" />
 					</span>
 				</form>
 			</div>
-
 			<div class="col-lg-3 col-md-6 mb-4">
 				<h5>Rate game:</h5>
 				<span th:if='${not @userController.logged}'> Please log in
@@ -105,17 +95,18 @@
 					<span> Your rating: <span th:text='${userRating}' />
 				</span>
 					<div class="rating">
-						<span><a href='/addrating_mines?value=5'>☆</a></span> <span><a
-							href='/addrating_mines?value=4'>☆</a></span> <span><a
-							href='/addrating_mines?value=3'>☆</a></span> <span><a
-							href='/addrating_mines?value=2'>☆</a></span> <span><a
-							href='/addrating_mines?value=1'>☆</a></span>
+						<span><a href='/addrating_guessnumber?value=5'>☆</a></span> <span><a
+							href='/addrating_slide?value=4'>☆</a></span> <span><a
+							href='/addrating_slide?value=3'>☆</a></span> <span><a
+							href='/addrating_slide?value=2'>☆</a></span> <span><a
+							href='/addrating_slide?value=1'>☆</a></span>
 					</div>
 				</span>
+
 			</div>
 		</div>
-	</div>
 
+	</div>
 	<!-- Footer -->
 	<footer class="py-5 bg-dark">
 		<div class="container">
