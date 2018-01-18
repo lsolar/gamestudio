@@ -70,20 +70,24 @@ public class GuessNumberController {
 	public String guess(@RequestParam(value = "guess", required = false) String guess, Model model) {
 
 		String message = "";
+		boolean newGame = true;
+
 		try {
 			int userGuess = Integer.parseInt(guess);
 
 			if (userGuess < number) {
 				message = "My number is higher.";
 			} else if (userGuess > number) {
-				message = "My nunmber is lower.";
+				message = "My number is lower.";
 			} else {
 				message = "You won, number is " + number;
 				number = random.nextInt(maxNumber) + 1;
 			}
 		} catch (NumberFormatException e) {
-			// e.printStackTrace();
-			message = "Bad input, try again.";
+			if (newGame) {
+			} else
+				message = "Bad input, try again.";
+			newGame = false;
 		}
 		model.addAttribute("message", message);
 		return fillModel(model);

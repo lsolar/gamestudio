@@ -26,7 +26,6 @@ import gamestudio.service.ScoreService;
 @Scope(WebApplicationContext.SCOPE_SESSION)
 public class MinesController {
 	private Field field;
-	private double rating;
 	private long timeStart = System.currentTimeMillis();
 
 	@Autowired
@@ -54,11 +53,6 @@ public class MinesController {
 
 	public boolean isMarking() {
 		return marking;
-	}
-
-	public double getRating() {
-		rating = ratingService.getAverageRating("mines");
-		return rating;
 	}
 
 	@RequestMapping("/addrating_mines")
@@ -232,11 +226,15 @@ public class MinesController {
 	private void createFieldMedium() {
 		field = new Field(10, 10, 15);
 		message = "";
+		timeStart = System.currentTimeMillis();
+
 	}
 
 	private void createFieldHard() {
 		field = new Field(13, 13, 35);
 		message = "";
+		timeStart = System.currentTimeMillis();
+
 	}
 
 }

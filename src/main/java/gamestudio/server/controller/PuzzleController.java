@@ -83,14 +83,7 @@ public class PuzzleController {
 			if (field.isSolved()) {
 				message = "EXCELLENT, YOU GOT IT!";
 
-				if (userController.isLogged()) {
-					Score score = new Score();
-					score.setGame("puzzle");
-					score.setUsername(userController.getLoggedPlayer().getLogin());
-					score.setValue((int) (System.currentTimeMillis() - timeStart) / 1000);
-
-					scoreService.addScore(score);
-				}
+				timeCount();
 
 				// if (userController.isLogged())
 				// scoreService.addScore(new Score(userController.getLoggedPlayer().getLogin(),
@@ -101,6 +94,17 @@ public class PuzzleController {
 		}
 		return fillModel(model);
 
+	}
+
+	private void timeCount() {
+		if (userController.isLogged()) {
+			Score score = new Score();
+			score.setGame("puzzle");
+			score.setUsername(userController.getLoggedPlayer().getLogin());
+			score.setValue((int) (System.currentTimeMillis() - timeStart) / 1000);
+
+			scoreService.addScore(score);
+		}
 	}
 
 	private String fillModel(Model model) {
@@ -123,6 +127,9 @@ public class PuzzleController {
 			field.moveTile(Integer.parseInt(tile));
 			if (field.isSolved()) {
 				message = "EXCELLENT, YOU GOT IT!";
+				
+				timeCount();
+
 				// if (userController.isLogged())
 				// scoreService.addScore(new Score(userController.getLoggedPlayer().getLogin(),
 				// "puzzle", 1000-10 * field.getPlayingSeconds());
@@ -140,6 +147,9 @@ public class PuzzleController {
 			field.moveTile(Integer.parseInt(tile));
 			if (field.isSolved()) {
 				message = "EXCELLENT, YOU GOT IT!";
+				
+				timeCount();
+
 				// if (userController.isLogged())
 				// scoreService.addScore(new Score(userController.getLoggedPlayer().getLogin(),
 				// "puzzle", 1000-10 * field.getPlayingSeconds());
@@ -192,10 +202,14 @@ public class PuzzleController {
 	private void createFieldMedium() {
 		field = new Field(3, 3);
 		message = "";
+		timeStart = System.currentTimeMillis();
+
 	}
 
 	private void createFieldHard() {
 		field = new Field(4, 4);
 		message = "";
+		timeStart = System.currentTimeMillis();
+
 	}
 }

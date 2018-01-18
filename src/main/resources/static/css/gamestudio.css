@@ -36,10 +36,6 @@
 	unicode-bidi: bidi-override;
 	direction: rtl;
 }
-#image {
-	
-/* 	position:fixed; */
-}
 
 /* .rating span { */
 /* 	display: inline-block; */
@@ -69,28 +65,13 @@
 	/* 	content: "\2605"; */
 	/* 	position: absolute; */
 	/* 	color: orange; */
-	/* } */ 
+	/* } */       
 
-#game-button {
-	text-align: left;
-	vertical-align: middle;
-}
 
 .mines-table {
 	line-height: 0;
-	/* 	margin:auto; */
 }
-/* #newgame */
-/* { */
-/* 	margin:auto; */
 
-/* } */
-
-/* #game { */
-/* 	transform: translate(50%, 0%); */
-/* 	display: block; */
-/* 	block-align: right; */
-/* } */
 /* .jumbotron1 { */
 /* 	padding: 2rem 1rem; */
 /* 	margin-bottom: 2rem; */
@@ -132,41 +113,40 @@
 	direction: rtl;
 }
 
-/* .rating span { */
+.rating a {
+	text-decoration: none;
+}
+
+.rating span {
 /* 	display: inline-block; */
-/* /* 	position: relative; */
-/
-/* /* 	width: 1.1em; */
+	position: relative;
+	width: 1.1em;
+	color: #ffcc00;
+	text-decoration: none;
+}
 
-/* 	color: #ffcc00; */
-/* } */
-
-/* .rating span:hover:before, .rating span:hover ~ span:before { */
-/* 	content: "\2605";	 */
-/* 	position: absolute; */
-/* } */
+.rating span:hover:before, .rating span:hover ~ span:before {
+	/* 	content: "\2605"; */
+	position: absolute;
+}
 
 /* --------------------------------------- */
-
 /* .rating { */
-/* 	font-size:1.5rem; */
+/* 	font-size: 1.5rem; */
 /* 	direction: ltr; */
-/* /* 	width: 200px; */
-
-/* /* 	margin: 50px auto; */
-
+/* 	width: 200px; */
+/* 	margin: 50px auto; */
 /* } */
 
 /* .rating a { */
 /* 	display: inline-block; */
-
 /* 	font-size: 40px; */
 /* 	color: orange; */
 /* 	cursor: pointer; */
 /* } */
 
-/* .rating a:hover:before, rating a:hover ~ a:before  { */
-/* 	content: "\2605"; */
-/* 	position: absolute; */
-/* 	color: orange; */
-/* } */
+.rating a:hover:before, rating a:hover ~ a:before {
+	content: "\2605";
+	position: absolute;
+	color: orange;
+}

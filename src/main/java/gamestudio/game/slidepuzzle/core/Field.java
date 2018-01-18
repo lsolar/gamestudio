@@ -41,6 +41,7 @@ public class Field {
 	}
 
 	private void shuffle() {
+		Random random = new Random();
 		for (int row = 0; row < rowCount; row++) {
 			for (int column = 0; column < columnCount; column++) {
 			}

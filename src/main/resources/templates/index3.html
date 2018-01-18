@@ -35,9 +35,9 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">Home
-							<span class="sr-only">(current)</span>
-					</a></li>
+<!-- 					<li class="nav-item active"><a class="nav-link" href="#">Home -->
+<!-- 							<span class="sr-only">(current)</span> -->
+<!-- 					</a></li> -->
 					<!--             <li class="nav-item"> -->
 					<!--               <a class="nav-link" href="#">About</a> -->
 					<!--             </li> -->
@@ -57,10 +57,10 @@
 		<!-- Jumbotron Header -->
 		<header class="jumbotron1">
 			<h1 class="display-3">Welcome to GameStudio</h1>
-			<span th:if='${@userController.logged}'>
-				<h3 class="display-8"
-					th:text='${@userController.loggedPlayer?.login}' />
-			</span>
+<!-- 			<span th:if='${@userController.logged}'> -->
+<!-- 				<h3 class="display-8" -->
+<!-- 					th:text='${@userController.loggedPlayer?.login}' /> -->
+<!-- 			</span> -->
 			<!--         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p> -->
 			<!--         <a href="#" class="btn btn-primary btn-lg">Call to action!</a> -->
 		</header>
@@ -125,7 +125,10 @@
 					<img class="card-img-top" src="/images/slide2.png" alt="Sliding puzzle" />
 					<div class="card-body">
 						<h4 class="card-title">Sliding puzzle</h4>
-						<p class="card-text"></p>
+						<p class="card-text">
+						<div>Average rating</div>
+						<span th:utext='${#numbers.formatDecimal(averageSlide,1,1)}' /><span>/5</span>
+						</p>
 					</div>
 					<div class="card-footer">
 						<a href="/slide" class="btn btn-dark">Play!</a>
