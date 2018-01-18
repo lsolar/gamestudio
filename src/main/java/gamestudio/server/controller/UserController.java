@@ -35,7 +35,7 @@ public class UserController {
 		model.addAttribute("averageMines", ratingService.getAverageRating("mines"));
 		model.addAttribute("averagePuzzle", ratingService.getAverageRating("puzzle"));
 		model.addAttribute("averageGuess", ratingService.getAverageRating("guessnumber"));
-		model.addAttribute("averageSlide", ratingService.getAverageRating("slidepuzzle"));
+		model.addAttribute("averageSlide", ratingService.getAverageRating("slide"));
 		if (isLogged()) {
 			model.addAttribute("favorites", favoriteService.getFavorite(getLoggedPlayer().getLogin()));
 		}

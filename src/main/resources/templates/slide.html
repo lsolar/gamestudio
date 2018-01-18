@@ -43,20 +43,24 @@
 			<h2 class="display-5">Sliding puzzle</h2>
 			<h6 class="display-6">Average rating:</h6>
 			<h6 class="display-4">
-								<span th:utext='${#numbers.formatDecimal(averageSlide,1,1)}' /><span>/5</span>
+				<span th:utext='${#numbers.formatDecimal(averageSlide,1,1)}' /><span>/5</span>
 			</h6>
 		</header>
-		<div class="row">
-			<div class="col-lg-3 col-md-6 mb-4" id="image">
+		<div class="row text-center">
+			<div class="col-12" style="position:center">
 
-				<p th:utext='${slideController.render()}' />
+				<p th:utext='${slideController.render()}'></p>
+				<a href='/slide' class="btn btn-secondary">New Game</a> <a></a>
+
 
 			</div>
+			<br />
 		</div>
-		<div class="row">
+		<br /> 
+		<div class="row text-center">
 
-			<div class="col-lg-3 col-md-6 mb-4">
-				<table>
+			<div class="col-lg-4 col-md-6 mb-4" >
+				<table id="center-element">
 					<tr>
 						<th>Name</th>
 						<th>Score</th>
@@ -67,8 +71,8 @@
 					</tr>
 				</table>
 			</div>
-			<div class="col-lg-3 col-md-6 mb-4">
-				<table>
+			<div class="col-lg-4 col-md-6 mb-4">
+				<table id="center-element">
 					<tr>
 						<th>User</th>
 						<th>Comment</th>
@@ -79,7 +83,7 @@
 					</tr>
 				</table>
 				<hr />
-				<span th:if='${not @userController.logged}'> Please log in
+				<span id="slide" th:if='${not @userController.logged}'> Please log in
 					for comment this game </span>
 				<form action='/addcomment_slide' method='post'>
 					<span th:if='${@userController.logged}'> <label>Comment:<input
@@ -88,8 +92,8 @@
 					</span>
 				</form>
 			</div>
-			<div class="col-lg-3 col-md-6 mb-4">
-				<h5>Rate game:</h5>
+			<div class="col-lg-4 col-md-6 mb-4">
+				<h5 >Rate game:</h5>
 				<span th:if='${not @userController.logged}'> Please log in
 					for rate this game </span> <span th:if='${@userController.logged}'>
 					<span> Your rating: <span th:text='${userRating}' />

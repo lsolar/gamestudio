@@ -46,7 +46,7 @@ public class GuessNumberController {
 	public String rating(@RequestParam(value = "value", required = false) String value, Model model) {
 
 		ratingService.setRating(
-				new Rating(userController.getLoggedPlayer().getLogin(), "puzzle", (Integer.parseInt(value))));
+				new Rating(userController.getLoggedPlayer().getLogin(), "guessnumber", (Integer.parseInt(value))));
 
 		return fillModel(model);
 	}

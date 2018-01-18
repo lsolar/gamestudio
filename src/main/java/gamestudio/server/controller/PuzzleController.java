@@ -41,12 +41,6 @@ public class PuzzleController {
 	private Field field = new Field(3, 3);
 
 	private String message = "";
-	// private double rating;
-
-	// public double getRating() {
-	// rating = ratingService.getAverageRating("puzzle");
-	// return rating;
-	// }
 
 	public String getMessage() {
 		return message;
@@ -127,12 +121,8 @@ public class PuzzleController {
 			field.moveTile(Integer.parseInt(tile));
 			if (field.isSolved()) {
 				message = "EXCELLENT, YOU GOT IT!";
-				
-				timeCount();
 
-				// if (userController.isLogged())
-				// scoreService.addScore(new Score(userController.getLoggedPlayer().getLogin(),
-				// "puzzle", 1000-10 * field.getPlayingSeconds());
+				timeCount();
 			}
 		} catch (NumberFormatException e) {
 			createFieldMedium();
@@ -147,12 +137,9 @@ public class PuzzleController {
 			field.moveTile(Integer.parseInt(tile));
 			if (field.isSolved()) {
 				message = "EXCELLENT, YOU GOT IT!";
-				
+
 				timeCount();
 
-				// if (userController.isLogged())
-				// scoreService.addScore(new Score(userController.getLoggedPlayer().getLogin(),
-				// "puzzle", 1000-10 * field.getPlayingSeconds());
 			}
 		} catch (NumberFormatException e) {
 			createFieldHard();
@@ -174,7 +161,6 @@ public class PuzzleController {
 				sb.append("<td class='tile'>\n");
 				if (!field.isSolved())
 					sb.append(String.format("<a id='puzzle-link' href='/puzzle?tile=%d'>\n", tile));
-				// sb.append("<img src='/images/puzzle/" + image + ".png'>\n");
 				if (tile > 0) {
 					sb.append(tile);
 				}

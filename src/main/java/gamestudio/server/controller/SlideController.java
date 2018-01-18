@@ -21,7 +21,8 @@ import gamestudio.service.ScoreService;
 @Controller
 @Scope(WebApplicationContext.SCOPE_SESSION)
 public class SlideController {
-//	private long timeStart = System.currentTimeMillis();
+	private long timeStart = System.currentTimeMillis();
+	private int markedTile;
 
 	@Autowired
 	private RatingService ratingService;
@@ -72,21 +73,30 @@ public class SlideController {
 
 	@RequestMapping("/slide")
 	public String slide(@RequestParam(value = "tile", required = false) String tile, Model model) {
+		int scoreTime = 0;
 		try {
-			// field.moveTile(Integer.parseInt(tile));
-			if (field.isSolved()) {
-				message = "EXCELLENT, YOU GOT IT!";
+			if (markedTile == 0) {
+				markedTile = Integer.parseInt(tile);
+			} else {
 
-//				if (userController.isLogged()) {
-//					Score score = new Score();
-//					score.setGame("slide");
-//					score.setUsername(userController.getLoggedPlayer().getLogin());
-//					score.setValue((int) (System.currentTimeMillis() - timeStart) / 1000);
-//
-//					scoreService.addScore(score);
-//				}
+				field.moveTile(Integer.parseInt(tile), markedTile);
+				markedTile = 0;
 
+				if (field.isSolved()) {
+					message = "GREAT, YOU'VE DONE IT" + scoreTime + " !";
+					Score score = new Score();
+					scoreTime = ((int) (System.currentTimeMillis() - timeStart) / 1000);
+
+					if (userController.isLogged()) {
+						score.setGame("slide");
+						score.setUsername(userController.getLoggedPlayer().getLogin());
+						score.setValue(scoreTime);
+
+						scoreService.addScore(score);
+					}
+				}
 			}
+
 		} catch (NumberFormatException e) {
 			createField();
 		}
@@ -117,9 +127,9 @@ public class SlideController {
 			for (int column = 0; column < field.getColumnCount(); column++) {
 				int tile = field.getTile(row, column);
 
-				sb.append("<td class='tile'>\n");
+				sb.append("<td>\n");
 				if (!field.isSolved())
-					sb.append(String.format("<a href='/slide?tile=%d'>\n", row, column));
+					sb.append(String.format("<a href='/slide?tile=%d'>\n", tile));
 				sb.append("<img src='/images/slidepuzzle/" + tile + ".jpg'>\n");
 
 				if (!field.isSolved()) {
@@ -138,7 +148,8 @@ public class SlideController {
 	private void createField() {
 		field = new Field(3, 3);
 		message = "";
-//		timeStart = System.currentTimeMillis();
+		markedTile = 0;
+		timeStart = System.currentTimeMillis();
 
 	}
 
