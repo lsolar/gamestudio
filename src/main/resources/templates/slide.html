@@ -50,6 +50,7 @@
 			<div class="col-12" style="position:center">
 
 				<p th:utext='${slideController.render()}'></p>
+				<p th:utext='${slideController.message}'></p>
 				<a href='/slide' class="btn btn-secondary">New Game</a> <a></a>
 
 
@@ -77,9 +78,9 @@
 						<th>User</th>
 						<th>Comment</th>
 					</tr>
-					<tr th:each='comment: ${comments}'>
-						<td th:text='${comment.username}' />
-						<td th:text='${comment.content}' />
+					<tr th:each='comments: ${comment}'>
+						<td th:text='${comments.username}' />
+						<td th:text='${comments.content}' />
 					</tr>
 				</table>
 				<hr />

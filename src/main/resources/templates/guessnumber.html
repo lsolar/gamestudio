@@ -76,9 +76,9 @@
 						<th>User</th>
 						<th>Comment</th>
 					</tr>
-					<tr th:each='comment: ${comments}'>
-						<td th:text='${comment.username}' />
-						<td th:text='${comment.content}' />
+					<tr th:each='comments: ${comment}'>
+						<td th:text='${comments.username}' />
+						<td th:text='${comments.content}' />
 					</tr>
 				</table>
 				<hr />

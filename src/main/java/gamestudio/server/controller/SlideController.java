@@ -83,7 +83,7 @@ public class SlideController {
 				markedTile = 0;
 
 				if (field.isSolved()) {
-					message = "GREAT, YOU'VE DONE IT" + scoreTime + " !";
+					message = "YOU WON, PUZZLE COMPLETED!";
 					Score score = new Score();
 					scoreTime = ((int) (System.currentTimeMillis() - timeStart) / 1000);
 
