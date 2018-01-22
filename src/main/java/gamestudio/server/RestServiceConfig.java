@@ -3,6 +3,9 @@ package gamestudio.server;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.Configuration;
 
+import gamestudio.server.webservice.RatingRestService;
+import gamestudio.server.webservice.ScoreRestService;
+
 import javax.ws.rs.ApplicationPath;
 
 @Configuration
@@ -10,7 +13,10 @@ import javax.ws.rs.ApplicationPath;
 public class RestServiceConfig extends ResourceConfig {
 	// Jersey
 	public RestServiceConfig() {
-		// register(HelloREST.class);
-		packages("gamestudio.server");
+		 register(ScoreRestService.class);
+		 register(RatingRestService.class);
+		 register(ScoreRestService.class);
+		
+//		packages("gamestudio.server");
 	}
 }

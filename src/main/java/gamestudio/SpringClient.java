@@ -27,11 +27,11 @@ import gamestudio.service.impl.ScoreServiceRestClient;
 		"gamestudio" }, excludeFilters = @ComponentScan.Filter(type = FilterType.REGEX, pattern = "gamestudio.server.*"))
 public class SpringClient {
 
-	public static void main(String[] args) throws Exception {
-		// SpringApplication.run(SpringClient.class, args);
-		new SpringApplicationBuilder(SpringClient.class).web(false).run(args);
+//	public static void main(String[] args) throws Exception {
+//		// SpringApplication.run(SpringClient.class, args);
+//		new SpringApplicationBuilder(SpringClient.class).web(false).run(args);
 
-	}
+//	}
 
 	@Bean
 	public CommandLineRunner runner(ConsoleMenu menu) {
